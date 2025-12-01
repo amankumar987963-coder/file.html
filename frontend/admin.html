@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - CIMAGE GROUP OF INSTITUTIONS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="cimage-logo.jpg" alt="CIMAGE GROUP OF INSTITUTIONS" id="logo-image">
+            </div>
+            <h1>Admin Dashboard</h1>
+        </header>
+        
+        <main class="admin-container">
+            <div class="sidebar">
+                <h3>Admin Menu</h3>
+                <ul>
+                    <li><a href="#" class="tab-link active" data-tab="exams">Exams</a></li>
+                    <li><a href="#" class="tab-link" data-tab="questions">Questions</a></li>
+                    <li><a href="#" class="tab-link" data-tab="submissions">Submissions</a></li>
+                    <li><a href="#" id="logout-link">Logout</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <!-- Exams Tab -->
+                <div id="exams-tab" class="tab-content active">
+                    <div class="form-section">
+                        <h3>Create New Exam</h3>
+                        <form id="exam-form">
+                            <div class="form-group">
+                                <label for="exam-name">Exam Name</label>
+                                <input type="text" id="exam-name" name="exam-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exam-duration">Duration (minutes)</label>
+                                <input type="number" id="exam-duration" name="exam-duration" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exam-start">Start Time</label>
+                                <input type="datetime-local" id="exam-start" name="exam-start" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exam-end">End Time</label>
+                                <input type="datetime-local" id="exam-end" name="exam-end" required>
+                            </div>
+                            <button type="submit" class="btn primary">Create Exam</button>
+                            <button type="button" id="cancel-exam" class="btn secondary" style="display:none;">Cancel</button>
+                        </form>
+                    </div>
+                    
+                    <div class="table-container">
+                        <h3>Existing Exams</h3>
+                        <table id="exams-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Duration</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Exam data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Questions Tab -->
+                <div id="questions-tab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Create New Question</h3>
+                        <form id="question-form">
+                            <div class="form-group">
+                                <label for="question-exam">Exam</label>
+                                <select id="question-exam" name="question-exam" required>
+                                    <option value="">Select an exam</option>
+                                    <!-- Exams will be loaded here -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="question-type">Question Type</label>
+                                <select id="question-type" name="question-type" required>
+                                    <option value="mcq">Multiple Choice</option>
+                                    <option value="truefalse">True/False</option>
+                                    <option value="shortanswer">Short Answer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="question-text">Question Text</label>
+                                <textarea id="question-text" name="question-text" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group" id="options-container">
+                                <label>Options (Enter one option per line)</label>
+                                <textarea id="question-options" name="question-options" rows="4" placeholder="Option 1&#10;Option 2&#10;Option 3&#10;Option 4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="correct-answer">Correct Answer</label>
+                                <input type="text" id="correct-answer" name="correct-answer" required>
+                            </div>
+                            <button type="submit" class="btn primary">Create Question</button>
+                            <button type="button" id="cancel-question" class="btn secondary" style="display:none;">Cancel</button>
+                        </form>
+                    </div>
+                    
+                    <div class="table-container">
+                        <h3>Existing Questions</h3>
+                        <table id="questions-table">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Type</th>
+                                    <th>Exam</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Question data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Submissions Tab -->
+                <div id="submissions-tab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Export Submissions</h3>
+                        <button id="export-csv" class="btn primary">Export as CSV</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <h3>Exam Submissions</h3>
+                        <table id="submissions-table">
+                            <thead>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>Exam</th>
+                                    <th>Score</th>
+                                    <th>Time Taken</th>
+                                    <th>Violations</th>
+                                    <th>Submitted At</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Submission data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- javascript files -->
+     <script src="js/config.js"></script>
+     
+     <script src="js/auth.js"></script>
+     <script src="js/admin.js"></script>
+     
+</body>
+</html>

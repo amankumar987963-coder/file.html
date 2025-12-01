@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam - CIMAGE GROUP OF INSTITUTIONS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h2>CIMAGE</h2>
+            </div>
+            <h1>Online Exam</h1>
+        </header>
+        
+        <div class="exam-header">
+            <div class="timer-container">
+                <span>Time Remaining: </span>
+                <span id="timer" class="timer">00:00</span>
+            </div>
+            <div class="violation-container">
+                <span>Tab Switches: </span>
+                <span id="violation-count">0</span>
+            </div>
+        </div>
+        
+        <div id="warning-banner" class="warning-banner hidden">
+            <p>Warning: Tab switching detected! Continued violations may result in exam termination.</p>
+        </div>
+        
+        <main class="exam-container">
+            <div id="question-navigation">
+                <h3>Questions</h3>
+                <div id="question-buttons" class="question-buttons"></div>
+            </div>
+            
+            <div class="question-container">
+                <div id="question-content">
+                    <!-- Questions will be loaded here -->
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button id="prev-btn" class="btn">Previous</button>
+                    <button id="next-btn" class="btn">Next</button>
+                    <button id="submit-btn" class="btn primary">Submit Exam</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/exam.js"></script>
+</body>
+</html>

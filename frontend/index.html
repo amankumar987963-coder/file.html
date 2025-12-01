@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam Portal - CIMAGE GROUP OF INSTITUTIONS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h2>CIMAGE</h2>
+            </div>
+            <h1>Online Exam Portal</h1>
+        </header>
+        
+        <main class="login-container">
+            <div class="card">
+                <h2>Student Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" name="studentId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn primary">Login</button>
+                </form>
+                <div id="error-message" class="error-message" style="margin-top: 15px; padding: 10px; display: none;"></div>
+                <div style="margin-top: 20px; font-size: 13px; color: #666;">
+                    <p><strong>Test Credentials:</strong></p>
+                    <p>Student ID: 1-10 | Password: a-j (e.g., ID: 1, Password: a)</p>
+                    <p>Admin: admin | Password: admin123</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/exam.js"></script>
+<script src="js/Question.js"></script>
+<script src="js/submission.js"></script>
+<script src="js/user.js"></script>
